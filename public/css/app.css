@@ -2,12 +2,10 @@
   margin-bottom: 0px;
 }
 
-.big-padding {
-  padding: 30px;
-}
-
-.navbar {
-  margin-bottom: 0px;
+.circle-shopping-cart {
+  background-color: #232980;
+  border-radius: 50%;
+  padding: 1em 1em;
 }
 
 .no-margin {
@@ -78,31 +76,63 @@
   top: 10px;
 }
 
-.blue-grey {
-  background-color: #37474f;
+.creado {
+  background-color: #d4e157;
 }
 
-.red-text {
-  color: rgb;
+.sale-data {
+  padding: 1em;
+  text-align: center;
+  border-rigth: solid 1px #222;
 }
 
-.white {
-  background-color: white;
+.sale-data span {
+  display: block;
+  fonts-size: 2.2em;
+  color: #3f51b5;
 }
 
-.white-text {
-  color: white;
+.product-avatar {
+  max-width: 100%;
 }
 
-.table {
-  background-color: white;
+.products-container .product {
+  margin-top: 1em;
 }
 
-.floating {
-  position: fixed;
-  bottom: 2em;
-  right: 2em;
-  z-index: 100;
+.highlight {
+  -webkit-animation: highligth 1.5s;
+  animation: highlight 1.5s;
+}
+
+@-webkit-keyframes highligth {
+  50% {
+    background-color: #ffff00;
+    color: black;
+  }
+  100% {
+    background-color: inherit;
+  }
+}
+
+@-webkit-keyframes highlight {
+  50% {
+    background-color: #ffff00;
+    color: black;
+  }
+  100% {
+    background-color: inherit;
+  }
+}
+
+@keyframes highlight {
+  50% {
+    background-color: #ffff00;
+    color: black;
+  }
+  100% {
+    background-color: inherit;
+  }
 }
 
 /*# sourceMappingURL=app.css.map */

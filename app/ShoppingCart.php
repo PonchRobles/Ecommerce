@@ -9,6 +9,21 @@ class ShoppingCart extends Model
     //
 protected $fillable =["status"];
 
+
+public function approve(){
+$this->updateCustomIDAndStatus();
+}
+
+public function generateCustomID(){
+return md5("$this->id $this->update_at");
+}
+
+public function updateCustomIDAndStatus(){
+  $this->status = "approved";
+ $this->customid = $this->generateCustomID();
+ $this->save();
+}
+
 public function inShoppingCarts(){
   return $this->hasMany('App\InShoppingCart');
 }
@@ -45,5 +60,9 @@ public static function createWithoutSession(){
     "status"=>"incompleted"
   ]);
 
+}
+
+public function order() {
+  return $this->hasOne("App\Order")->first();
 }
 }
