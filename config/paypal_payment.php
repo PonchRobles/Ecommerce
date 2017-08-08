@@ -3,8 +3,8 @@
 return array(
 	# Account credentials from developer portal
 	'Account' => array(
-		'ClientId' => env('Ab5o7T9BFhv9G5Rwwmkw_xQQc8A_dVqxhEF-Ez5C6_z3nzNdHn2O9ReKu_exNKW7KhnOwIK-ZtNxpUGv',''),
-		'ClientSecret' => env('EBHvgeN33lUiSXjbhdOLouSCUy2eDSaSp0ZqqrPO_RUreSIRsXgIc2Lze7ny3yQOBbA3n4RFVmZI5Kf5',''),
+		'ClientId' => env('',''),
+		'ClientSecret' => env('',''),
 	),
 
 	# Connection Information

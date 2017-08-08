@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\OrderCreate;
 use App\Mail\OrderUpdate;
+use App\Log;
+
 class Order extends Model
 {
     //
