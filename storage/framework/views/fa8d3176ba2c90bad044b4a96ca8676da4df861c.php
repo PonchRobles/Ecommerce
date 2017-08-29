@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title><?php echo e(config('app.name', 'Laravel')); ?></title>
 
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
@@ -19,7 +19,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material-fullpalette.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/ripples.min.css">
-<link href="{{ url('/css/app.css') }}" rel="stylesheet">
+<link href="<?php echo e(url('/css/app.css')); ?>" rel="stylesheet">
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -42,8 +42,8 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                  DASHBOARD
+                    <a class="navbar-brand" href="<?php echo e(url('/')); ?>">
+                  ECOMMERCE
                     </a>
                 </div>
 
@@ -55,35 +55,39 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
+
                         <!-- Authentication Links -->
-                          <li><a href="{{url('/carrito')}}">
+                          <li><a href="<?php echo e(url('/carrito')); ?>">
                                 Mi carrito
                                 <span class="circle-shopping-cart ">
-                                  {{$productsCount}}
+                                  <?php echo e($productsCount); ?>
+
                                 </span>
                               </a>
                           </li>
-                        @if (Auth::guest())
-                            <li><a href="{{ url('/login') }}">Login</a></li>
-                            <li><a href="{{ url('/register') }}">Register</a></li>
-                        @else
+                        <?php if(Auth::guest()): ?>
+                            <li><a href="<?php echo e(url('/login')); ?>">Login</a></li>
+                            <li><a href="<?php echo e(url('/register')); ?>">Register</a></li>
+                        <?php else: ?>
+                        <li> <a href="<?php echo e(url('/products')); ?>">Productos</a></li>
                         <li>
-                            <a href="{{ url('/logout') }}"
+                            <a href="<?php echo e(url('/logout')); ?>"
                                 onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
                                 Logout
                             </a>
 
-                            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                {{ csrf_field() }}
+                            <form id="logout-form" action="<?php echo e(url('/logout')); ?>" method="POST" style="display: none;">
+                                <?php echo e(csrf_field()); ?>
+
                             </form>
-                        @endif
+                        <?php endif; ?>
                     </ul>
                 </div>
             </div>
         </nav>
 
-        @yield('content')
+        <?php echo $__env->yieldContent('content'); ?>
     </div>
 
     <!-- Scripts -->
@@ -109,7 +113,7 @@
     $.material.init();
 </script>
 
-<script src="{{ url('js/app.js') }}"></script>
+<script src="<?php echo e(url('js/app.js')); ?>"></script>
 
 </body>
 </html>
